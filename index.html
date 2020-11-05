@@ -6,9 +6,10 @@
         <link rel="stylesheet" href="Style.css">
     </head>
     <body>
+        <div class="main">
         <div class="login-block">
             <div class="login-content">
-                <h1>Login</h1>
+                <h1 id="demo">Login</h1>
                 <div class="user-name">
                     <label for="username">Username</label><br>
                     <input type="text" id="username" name="username" placeholder="e.g david">
@@ -17,9 +18,33 @@
                     <label for="password">Password</label><br>
                     <input type="password" id="password" name="password" placeholder="e.g david905">
                 </div>
-                <button type="button">Login</button>
-                <h5><a href="#">Forget Password?</a></h5>
+                <button id="login-btn" type="button">Login</button>
+                <h5><a href="forget.html">Forget Password?</a></h5>
             </div>
         </div>
+            <h1 id="answer"></h1>
+        </div>
+    <script>
+        var persons = [
+            {username: "mike", password: "mike45"},
+            {username: "jack", password: "jack90"},
+            {username: "john", password: "john00"}
+        ];
+        var myFunction = () => {
+            var userData = document.getElementById("username").value;
+            var passData = document.getElementById("password").value;
+            //console.log(passData);
+            //console.log(userData);    
+            for(let i = 0; i < persons.length; i++){
+                if(persons[i].username === userData && persons[i].password === passData){
+                    window.open("login.html","_self");
+                    break;
+                } else {
+                    console.log("Incorrect");
+                }
+            }
+        }
+        document.getElementById("login-btn").addEventListener("click", myFunction);
+    </script>
     </body>
 </html>
